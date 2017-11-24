@@ -1,0 +1,9 @@
+{
+  "apiPrefix": "http://localhost:3001",
+  "port": "3001",
+  "db": {
+    "dbName": "bookshop",
+    "host": "localhost",
+    "port": 27017
+  }
+}
