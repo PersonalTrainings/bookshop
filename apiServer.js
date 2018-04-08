@@ -5,11 +5,21 @@ var logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const config = require('./config/config.json');
+const Authentication = require('./controllers/authentication');
+const passportService = require('./services/passport');
+const passport = require('passport');
+const cors = require('cors');
+
+const requireAuth = passport.authenticate('jwt', { session: false });
+const requireSignin = passport.authenticate('local', { session: false });
 
 var app = express();
 
-app.use(logger('dev'));
-app.use(bodyParser.json());
+// app.use(logger('dev'));
+app.use(logger('combined'));
+app.use(cors());
+// app.use(bodyParser.json());
+app.use(bodyParser.json({ type: '*/*' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
@@ -131,6 +141,12 @@ app.get('/images', function(req, res) {
   })
 
 })
+
+// AUTHENTICATION
+
+app.post('/signin', requireSignin, Authentication.signin);
+app.post('/signup', Authentication.signup);
+
 // END APIs
 
 app.listen(3001, function(err) {
