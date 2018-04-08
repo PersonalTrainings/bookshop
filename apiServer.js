@@ -1,7 +1,7 @@
-var express = require('express');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var logger = require('morgan');
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const config = require('./config/config.json');
@@ -13,7 +13,7 @@ const cors = require('cors');
 const requireAuth = passport.authenticate('jwt', { session: false });
 const requireSignin = passport.authenticate('local', { session: false });
 
-var app = express();
+const app = express();
 
 // app.use(logger('dev'));
 app.use(logger('combined'));
@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 
 // APIs
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // MONGO LAB
 mongoose.connect('mongodb://narek1993x:123123@ds121336.mlab.com:21336/bookshop', { useMongoClient: true });
@@ -35,7 +35,7 @@ mongoose.connect('mongodb://narek1993x:123123@ds121336.mlab.com:21336/bookshop',
 //   useMongoClient: true,
 // })
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, '# MongoDB - connection error: '));
 
 // ---->>> SET UP SESSIONS <<<----
@@ -49,7 +49,7 @@ app.use(session({
 
 // SAVE SESSION CART API
 app.post('/cart', function(req, res) {
-  var cart = req.body;
+  const cart = req.body;
   req.session.cart = cart;
   req.session.save(function(err) {
     if (err) { throw err; }
@@ -67,11 +67,11 @@ app.get('/cart', function(req, res) {
 
 // ----> END SESSIONS SET UP
 
-var Books = require('./models/books.js');
+const Books = require('./models/books.js');
 
 // ---->>> POST BOOKS <<<------
 app.post('/books', function (req, res) {
-  var book = req.body;
+  const book = req.body;
 
   Books.create(book, function (err, books) {
     if (err) { throw err; }
@@ -100,10 +100,10 @@ app.delete('/books/:_id', function (req, res) {
 
 // ---->>> UPDATE BOOKS <<<------
 app.put('/books/:_id', function (req, res) {
-  var book = req.body;
-  var query = req.params._id;
+  const book = req.body;
+  const query = req.params._id;
   // if the field doesn't exist $set will set a new field
-  var update = {
+  const update = {
     '$set': {
       title: book.title,
       description: book.description,
@@ -112,7 +112,7 @@ app.put('/books/:_id', function (req, res) {
     }
   };
   // When true returns the updated document
-  var options = { new: true };
+  const options = { new: true };
 
   Books.findByIdAndUpdate(query, update, options, function (err, books) {
     if (err) { throw err; }

@@ -1,11 +1,11 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
 // PROXY
-var httpProxy = require('http-proxy');
+const httpProxy = require('http-proxy');
 
-var app = express();
+const app = express();
 
 // PROXY TO API
 const apiProxy = httpProxy.createProxyServer({
@@ -30,7 +30,7 @@ app.get('*', function (req, res) {
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
