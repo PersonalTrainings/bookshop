@@ -13,7 +13,9 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Menu cartItemsNumber={this.props.totalQty} />
+        <Menu
+          isAuthenticated={this.props.isAuthenticated}
+          cartItemsNumber={this.props.totalQty} />
           {this.props.children}
         <Footer />
       </div>
@@ -21,8 +23,9 @@ class Main extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { totalQty: state.cart.totalQty }
-}
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  totalQty: state.cart.totalQty
+})
 
 export default connect(mapStateToProps, cartActions)(Main);

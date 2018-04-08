@@ -9,15 +9,23 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger';
 
 import Main from './main';
-import BookList from './components/pages/bookList';
-import Cart from './components/pages/cart';
-import BooksForm from './components/pages/booksForm';
+import BookList from './containers/bookList';
+import Cart from './containers/cart';
+import BooksForm from './containers/booksForm';
+import Auth from './containers/auth';
+import Signout from './containers/signout';
 import reducers from './store/reducers';
+import { AUTH_USER } from './store/auth/actionTypes'
 
 
 const store = createStore(combineReducers(reducers), composeWithDevTools(
   applyMiddleware(thunk, logger)
 ));
+
+const token = localStorage.getItem('token');
+if (token) {
+  store.dispatch({ type: AUTH_USER });
+}
 
 const Routes = (
   <Provider store={store}>
@@ -26,6 +34,8 @@ const Routes = (
         <IndexRoute component={BookList} />
         <Route path='/admin' component={BooksForm} />
         <Route path='/cart' component={Cart} />
+        <Route path='/auth' component={Auth} />
+        <Route path='/signout' component={Signout} />
       </Route>
     </Router>
   </Provider>

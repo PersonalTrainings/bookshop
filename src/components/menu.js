@@ -5,7 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 class Menu extends Component {
   render () {
-    const { cartItemsNumber } = this.props
+    const { cartItemsNumber, isAuthenticated } = this.props
 
     return (
       <Navbar inverse fixedTop>
@@ -26,15 +26,22 @@ class Menu extends Component {
           </Nav>
           <Nav pullRight>
             <LinkContainer to='/admin'>
-              <NavItem eventKey={1}>Admin</NavItem>
+              <NavItem eventKey={3}>Admin</NavItem>
             </LinkContainer>
             <LinkContainer to='/cart'>
-              <NavItem eventKey={2}>
+              <NavItem eventKey={4}>
                 Your cart
                 &nbsp;
                 {cartItemsNumber && <Badge className='badge'>{cartItemsNumber}</Badge>}
               </NavItem>
             </LinkContainer>
+            {!isAuthenticated
+              ? <LinkContainer to='/auth'>
+                  <NavItem eventKey={5} >Authenticate</NavItem>
+                </LinkContainer>
+              : <LinkContainer to='/signout'>
+                  <NavItem eventKey={6}>Signout</NavItem>
+                </LinkContainer>}            
           </Nav>
         </Navbar.Collapse>
       </Navbar>
