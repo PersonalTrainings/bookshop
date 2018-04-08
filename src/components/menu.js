@@ -21,7 +21,7 @@ class Menu extends Component {
               <NavItem eventKey={1} >About</NavItem>
             </LinkContainer>
             <LinkContainer to='/contacts'>
-              <NavItem eventKey={2} >Conract Us</NavItem>
+              <NavItem eventKey={2} >Contact Us</NavItem>
             </LinkContainer>
           </Nav>
           <Nav pullRight>
