@@ -7,9 +7,9 @@
     "dev": "nodemon & webpack"
   },
   "devDependencies": {
+    "nodemon": "^1.12.1",
     "redux-logger": "^3.0.6",
-    "webpack": "^3.8.1",
-    "nodemon": "^1.12.1"
+    "webpack": "^3.8.1"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -18,16 +18,35 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "autoprefixer": "^7.1.5",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.5",
+    "html-webpack-plugin": "^2.30.1",
+    "postcss-loader": "^2.0.7",
+    "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.18.2",
     "connect-mongo": "^2.0.0",
     "cookie-parser": "~1.4.3",
+    "cors": "^2.7.1",
     "debug": "~2.6.9",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "http-proxy": "^1.16.2",
     "jade": "~1.11.0",
+    "jwt-simple": "^0.5.0",
     "mongoose": "^4.13.4",
     "morgan": "^1.9.0",
+    "nodemon": "^1.9.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.0.0",
+    "passport-local": "^1.0.0",
     "react": "^16.1.1",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.1.1",
@@ -37,13 +56,7 @@
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
-    "serve-favicon": "~2.4.5",
-    "bcrypt-nodejs": "0.0.3",
-    "cors": "^2.7.1",
-    "jwt-simple": "^0.5.0",
-    "nodemon": "^1.9.1",
-    "passport": "^0.3.2",
-    "passport-jwt": "^2.0.0",
-    "passport-local": "^1.0.0"
+    "seamless-immutable": "^7.1.3",
+    "serve-favicon": "~2.4.5"
   }
 }
