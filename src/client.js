@@ -14,6 +14,7 @@ import Cart from './containers/cart';
 import BooksForm from './containers/booksForm';
 import Auth from './containers/auth';
 import Signout from './containers/signout';
+import RequireAuth from './components/hoc/require_auth'
 import reducers from './store/reducers';
 import { AUTH_USER } from './store/auth/actionTypes'
 
@@ -32,7 +33,7 @@ const Routes = (
     <Router history={browserHistory}>
       <Route path='/' component={Main}>
         <IndexRoute component={BookList} />
-        <Route path='/admin' component={BooksForm} />
+        <Route path='/admin' component={RequireAuth(BooksForm)} />
         <Route path='/cart' component={Cart} />
         <Route path='/auth' component={Auth} />
         <Route path='/signout' component={Signout} />

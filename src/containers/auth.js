@@ -162,7 +162,7 @@ class Auth extends Component {
     return (
       <Well>
         <Row style={{display: 'flex', justifyContent: 'center'}}>
-          <Col xs={12} sm={6}>
+          <Col xs={6} sm={3}>
             {form}
           </Col>
         </Row>

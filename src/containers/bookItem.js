@@ -5,14 +5,8 @@ import { connect } from 'react-redux';
 import * as cartActions from '../store/cart/actions';
 
 class BookItem extends Component {
-  constructor() {
-    super()
-    this.state = {
-      isClicked: false
-    }
-
-    this.handleCart = this.handleCart.bind(this);
-    this.onReadMore = this.onReadMore.bind(this);
+  state = {
+    isClicked: false
   }
 
   onReadMore = () => {

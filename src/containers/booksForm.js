@@ -6,16 +6,9 @@ import * as booksActions from '../store/books/actions';
 import axios from 'axios';
 
 class BooksForm extends Component {
-  constructor() {
-    super()
-    this.state = {
-      images: [{}],
-      img: ''
-    }
-    
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
-    this.onDelete = this.onDelete.bind(this);
+  state = {
+    images: [{}],
+    img: ''
   }
 
   componentDidMount = () => {

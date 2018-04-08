@@ -5,17 +5,8 @@ import { Panel, Col, Row, Well, Button, ButtonGroup, Label, Modal } from 'react-
 import * as cartActions from '../store/cart/actions';
 
 class Cart extends Component {
-  constructor() {
-    super()
-    this.state = {
-      showModal: false
-    }
-
-    this.onDelete = this.onDelete.bind(this);
-    this.onIncrement = this.onIncrement.bind(this);
-    this.onDecrement = this.onDecrement.bind(this);
-    this.showModal = this.showModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+  state = {
+    showModal: false
   }
 
   componentDidMount = () => {
