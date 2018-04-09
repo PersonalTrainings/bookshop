@@ -2,12 +2,10 @@ import * as types from './actionTypes'
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 
-const ROOT_URL = 'http://localhost:3001';
-
 export const signup = ({email, password}) => {
   return dispatch => {
     dispatch({ type: types.SIGN_UP_REQUEST })
-    axios.post(`${ROOT_URL}/signup`, { email, password })
+    axios.post('/api/signup', { email, password })
       .then(response => {
         dispatch({ type: types.AUTH_USER })
         localStorage.setItem('token', response.data.token);
@@ -20,7 +18,7 @@ export const signup = ({email, password}) => {
 export const signin = ({email, password}) => {
   return dispatch => {
     dispatch({ type: types.SIGN_IN_REQUEST })
-    axios.post(`${ROOT_URL}/signin`, { email, password })
+    axios.post('/api/signin', { email, password })
       .then(response => {
         dispatch({ type: types.AUTH_USER });
         localStorage.setItem('token', response.data.token);
