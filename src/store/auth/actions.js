@@ -13,7 +13,7 @@ export const signup = ({email, password}) => {
         localStorage.setItem('token', response.data.token);
         browserHistory.push('/');
       })
-      .catch(() => dispatch(authError('Bad Login Info')));
+      .catch((error) => dispatch(authError(error.response.data.error)));
   }
 }
 
