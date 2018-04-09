@@ -1,3 +1,4 @@
+"use strict"
 import * as types from './actionTypes'
 import axios from 'axios';
 import { browserHistory } from 'react-router';
@@ -5,7 +6,7 @@ import { browserHistory } from 'react-router';
 export const signup = ({email, password}) => {
   return dispatch => {
     dispatch({ type: types.SIGN_UP_REQUEST })
-    axios.post('/api/signup', { email, password })
+    axios.post(`/api/signup`, { email, password })
       .then(response => {
         dispatch({ type: types.AUTH_USER })
         localStorage.setItem('token', response.data.token);
@@ -18,7 +19,7 @@ export const signup = ({email, password}) => {
 export const signin = ({email, password}) => {
   return dispatch => {
     dispatch({ type: types.SIGN_IN_REQUEST })
-    axios.post('/api/signin', { email, password })
+    axios.post(`/api/signin`, { email, password })
       .then(response => {
         dispatch({ type: types.AUTH_USER });
         localStorage.setItem('token', response.data.token);
